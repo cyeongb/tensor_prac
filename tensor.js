@@ -24,10 +24,10 @@ model.compile(compileParam);
 // 3. 데이터로 모델을 학습시킵니다.
 //let fitParam = { epochs: 1000 } //epochs :학습 횟수
 let fitParam = {
-    epochs: 1000, callbacks: {
+    epochs: 1500, callbacks: {
         onEpochEnd: function (epoch, logs) {
             console.log('epoch', epoch, logs);  //  RMSE가 0 에가까울수록 학습이 잘 된것이라고 봄
-            console.log('RMSE==>', Math.sqrt(logs.loss));
+            console.log('RMSE==>', Math.sqrt(logs.loss)); //logs.loss를 제곱근(sqrt)한 것
         }
     }
 } // loss 추가 예제
