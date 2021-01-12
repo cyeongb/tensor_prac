@@ -40,8 +40,4 @@ model.fit(cause, result, fitParam).then(function (rs) {
 
 });
 
-                    // 4.2 새로운 데이터를 이용
-                    // var 다음주온도 = [15,16,17, 18, 19]
-                    // var 다음주원인 = tf.tensor(다음주온도);
-                    // var 다음주결과 = model.predict(다음주원인);
-                    // 다음주결과.print();
+                 // model.predict(tf.tensor([12])).print() 
