@@ -24,13 +24,15 @@ model.compile(compileParam);
 // 3. 데이터로 모델을 학습시킵니다.
 //let fitParam = { epochs: 1000 } //epochs :학습 횟수
 let fitParam = {
-    epochs: 1500, callbacks: {
+    epochs: 1850, callbacks: {
         onEpochEnd: function (epoch, logs) {
             console.log('epoch', epoch, logs);  //  RMSE가 0 에가까울수록 학습이 잘 된것이라고 봄
             console.log('RMSE==>', Math.sqrt(logs.loss)); //logs.loss를 제곱근(sqrt)한 것
         }
     }
 } // loss 추가 예제
+
+   
 model.fit(cause, result, fitParam).then(function (rs) {
 
     // 4. 모델을 이용합니다.
@@ -38,6 +40,17 @@ model.fit(cause, result, fitParam).then(function (rs) {
     let predict = model.predict(cause);
     predict.print();
 
-});
+    //모델 출력 후 모델을 내 컴퓨터 저장소에 다운받기
+   //model.save('downloads://downModel');
 
+    //브라우저의 로컬 저장소에 저장하기 
+    model.save('localstorage://localModel');
+
+});
+    
+                    // 예상값 출력해 보기
                  // model.predict(tf.tensor([12])).print() 
+
+// 가중치 구하기
+// let weights = model.getWeights();
+// 
